@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "binaryReader": {
+      "commandName": "Project",
+      "commandLineArgs": "C:\\adb\\vstupni_soubor.adb C:\\adb\\vystup.txt"
+    }
+  }
+}
