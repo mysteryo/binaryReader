@@ -77,19 +77,11 @@ namespace binaryReader
                     Nothing2 = br.ReadBytes(2);
                 }
             }
-            catch (ArgumentException e)
+
+            catch (Exception e)
             {
                 Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
             }
-            catch (IOException e)
-            {
-                Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
-            }
-            catch (UnauthorizedAccessException e)
-            {
-                Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
-            }
-            catch (Exception) { }
 
             try
             {
@@ -110,19 +102,10 @@ namespace binaryReader
                     sw.Write(UserName.Replace("\0", string.Empty));
                 }
             }
-            catch(ArgumentException e)
+            catch (Exception e) 
             {
                 Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
             }
-            catch (IOException e)
-            {
-                Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
-            }
-            catch (UnauthorizedAccessException e)
-            {
-                Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
-            }
-            catch (Exception) { }
         }
     }
 }
