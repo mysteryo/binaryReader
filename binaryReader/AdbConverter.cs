@@ -5,25 +5,25 @@ using System.IO;
 
 namespace binaryReader
 {
-    class AdbConverter
+    public class AdbConverter
     {
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
-        public double Altitude { get; set; }
-        public string RoverID { get; set; }
-        public string RoverIP { get; set; }
-        public byte SourceType { get; set; }
-        public string ServiceName { get; set; }
-        public Int16 ServiceType { get; set; }
-        public Int16 ConnectionType { get; set; }
-        public string UserName { get; set; }
-        public int StartWeek { get; set; }
-        public int StartTime { get; set; }
-        public int EndWeek { get; set; }
-        public int EndTime { get; set; }
-        public byte[] Nothing1 { get; set; }
-        public int BytesSent { get; set; }
-        public byte[] Nothing2 { get; set; }
+        private double Latitude { get; set; }
+        private double Longitude { get; set; }
+        private double Altitude { get; set; }
+        private string RoverID { get; set; }
+        private string RoverIP { get; set; }
+        private byte SourceType { get; set; }
+        private string ServiceName { get; set; }
+        private Int16 ServiceType { get; set; }
+        private Int16 ConnectionType { get; set; }
+        private string UserName { get; set; }
+        private int StartWeek { get; set; }
+        private int StartTime { get; set; }
+        private int EndWeek { get; set; }
+        private int EndTime { get; set; }
+        private byte[] Nothing1 { get; set; }
+        private int BytesSent { get; set; }
+        private byte[] Nothing2 { get; set; }
 
         private string _inputFile;
         private string _outputFile;
@@ -77,10 +77,19 @@ namespace binaryReader
                     Nothing2 = br.ReadBytes(2);
                 }
             }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
+            }
             catch (IOException e)
             {
                 Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
             }
+            catch (UnauthorizedAccessException e)
+            {
+                Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
+            }
+            catch (Exception) { }
 
             try
             {
@@ -101,11 +110,19 @@ namespace binaryReader
                     sw.Write(UserName.Replace("\0", string.Empty));
                 }
             }
-            catch(IOException e)
+            catch(ArgumentException e)
             {
                 Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
             }
-            
+            catch (IOException e)
+            {
+                Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
+            }
+            catch (UnauthorizedAccessException e)
+            {
+                Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
+            }
+            catch (Exception) { }
         }
     }
 }
