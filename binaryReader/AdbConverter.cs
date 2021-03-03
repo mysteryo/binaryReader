@@ -81,10 +81,6 @@ namespace binaryReader
             {
                 Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
             }
-            finally
-            {
-                Environment.Exit(1);
-            }
 
             try
             {
@@ -109,10 +105,7 @@ namespace binaryReader
             {
                 Console.WriteLine("EXCEPTION THROWN IN PROCESS(): " + e);
             }
-            finally
-            {
-                Environment.Exit(1);
-            }
+            
         }
     }
 }
